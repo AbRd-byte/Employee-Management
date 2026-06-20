@@ -1,4 +1,4 @@
-name: CI/CD Pipeline - Student World
+name: CI/CD Pipeline - React App
 
 on:
   push:
@@ -8,61 +8,41 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  security-events: write
+
 env:
   CI: false
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true # only if you need Node 20 temporarily
 
 jobs:
   build:
-    name: Build React App
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '24.12.0'
           cache: 'npm'
 
-      - name: Install npm version
-        run: npm install -g npm@11.6.2
+      - run: npm install -g npm@11.6.2
+      - run: npm ci
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run AI-driven lint & security checks
+      - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
           languages: javascript
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
 
       - name: Build project
         run: npm run build
 
-      - name: Upload production build
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: production-files
           path: ./dist
 
-  deploy:
-    name: Deploy to GitHub Pages
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: production-files
-          path: ./dist
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./dist
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
