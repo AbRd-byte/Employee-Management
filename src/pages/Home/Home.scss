@@ -1,0 +1,239 @@
+/* ===========================
+   Reset
+=========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===========================
+   Layout
+=========================== */
+
+.home-container {
+  display: flex;
+  min-height: 100vh;
+  background: #edf2f7;
+}
+
+/* ===========================
+   Sidebar
+=========================== */
+
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, #08142d, #213c8d);
+  color: white;
+  padding: 20px;
+  transition: width 0.35s ease;
+  overflow: hidden;
+}
+
+.home-container.collapsed .sidebar {
+  width: 90px;
+}
+
+/* ===========================
+   Sidebar Header
+=========================== */
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.menu-btn {
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu-btn:hover {
+  background: #1d4ed8;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+/* Sidebar Logo (next to ☰) */
+.sidebar-logo {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* ===========================
+   Sidebar Menu
+=========================== */
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  height: 60px;
+
+  padding: 0 18px;
+
+  margin-bottom: 18px;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.sidebar li:hover {
+  background: #2563eb;
+  transform: translateX(6px);
+}
+
+.icon {
+  width: 28px;
+  text-align: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.menu-text {
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.hide-text {
+  display: none;
+}
+
+/* Collapse */
+
+.home-container.collapsed .sidebar li {
+  justify-content: center;
+  padding: 0;
+}
+
+/* ===========================
+   Main Section
+=========================== */
+
+.main-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===========================
+   Content
+=========================== */
+
+.content {
+  flex: 1;
+  padding: 50px;
+}
+
+.content h1 {
+  text-align: center;
+  font-size: 52px;
+  color: #1f2937;
+  margin-bottom: 20px;
+}
+
+.content p {
+  text-align: center;
+  color: #6b7280;
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+/* ===========================
+   Cards
+=========================== */
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+  min-height: 220px;
+  background: white;
+  border-radius: 18px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card h3 {
+  color: #2563eb;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.card p {
+  font-size: 20px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+.footer {
+  background: #08142d;
+  color: white;
+  text-align: center;
+  padding: 18px;
+  font-size: 16px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 768px) {
+  .content {
+    padding: 25px;
+  }
+
+  .content h1 {
+    font-size: 34px;
+  }
+
+  .content p {
+    font-size: 18px;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
