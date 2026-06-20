@@ -1,5 +1,3 @@
-import React from "react";
-
 const Employee = () => {
   const employees = [
     { id: 1, name: "John Doe", position: "Software Engineer" },
