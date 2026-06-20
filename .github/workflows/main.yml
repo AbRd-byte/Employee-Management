@@ -11,7 +11,7 @@ on:
 permissions:
   contents: read
   security-events: write
-  actions: read   # ✅ Added to fix CodeQL telemetry error
+  actions: read   # ✅ Needed for CodeQL telemetry
 
 env:
   CI: false
