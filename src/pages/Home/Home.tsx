@@ -32,7 +32,7 @@ const Home: React.FC = () => {
               </span>
             </li>
 
-            <li>
+            {/* <li>
               <span className="icon">
                 <FaClipboardList />
               </span>
@@ -40,7 +40,7 @@ const Home: React.FC = () => {
               <span className={`menu-text ${collapsed ? "hide-text" : ""}`}>
                 Registration
               </span>
-            </li>
+            </li> */}
 
             <li>
               <span className="icon">
