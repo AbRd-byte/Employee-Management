@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Registration.scss";
+import { registerThunk } from "../../redux/api/auth.api";
+import { useAppDispatch } from "../../hooks/useAppDispatch";
+import { type RegistrationRequest } from "../../interfaces/auth.interface";
 
 const Registration = () => {
-  const [formData, setFormData] = useState({
+  const dispatch = useAppDispatch();
+
+  const [formData, setFormData] = useState<RegistrationRequest>({
     firstName: "",
     lastName: "",
     email: "",
@@ -11,20 +16,16 @@ const Registration = () => {
     password: "",
     confirmPassword: "",
   });
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    console.log(formData);
-
-    alert("Registration Successful!");
+    dispatch(registerThunk(formData));
   };
 
   return (
