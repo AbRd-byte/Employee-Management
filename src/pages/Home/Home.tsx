@@ -4,6 +4,7 @@ import { HiBars3 } from "react-icons/hi2";
 import { FaUserGraduate } from "react-icons/fa";
 import { FaClipboardList } from "react-icons/fa";
 import { FaBuilding } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -26,7 +27,6 @@ const Home: React.FC = () => {
               <span className="icon">
                 <FaUserGraduate />
               </span>
-
               <span className={`menu-text ${collapsed ? "hide-text" : ""}`}>
                 Course Details
               </span>
@@ -50,6 +50,26 @@ const Home: React.FC = () => {
               <span className={`menu-text ${collapsed ? "hide-text" : ""}`}>
                 Department
               </span>
+            </li>
+            <li>
+              <Link
+                to="/registration"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  textDecoration: "none",
+                  color: "inherit",
+                  width: "100%",
+                }}
+              >
+                <span className="icon">
+                  <FaClipboardList />
+                </span>
+
+                <span className={`menu-text ${collapsed ? "hide-text" : ""}`}>
+                  Registration
+                </span>
+              </Link>
             </li>
           </ul>
         </nav>

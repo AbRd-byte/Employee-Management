@@ -3,10 +3,11 @@ import Home from "./pages/Home/Home";
 import Employee from "./pages/Employee/Employee";
 import About from "./pages/AboutUs/About";
 import "./App.scss";
+import Registration from "./pages/Registration/Registration";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Employee-Management">
       <header className="top-navbar">
         <div className="logo">🎓 Student Portal</div>
 
@@ -37,6 +38,15 @@ function App() {
           >
             About
           </NavLink>
+
+          <NavLink
+            to="/registration"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
+            Register
+          </NavLink>
         </nav>
       </header>
 
@@ -44,6 +54,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/employees" element={<Employee />} />
         <Route path="/about" element={<About />} />
+        <Route path="/registration" element={<Registration />} />
       </Routes>
     </BrowserRouter>
   );
