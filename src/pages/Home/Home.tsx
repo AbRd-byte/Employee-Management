@@ -5,9 +5,11 @@ import { FaUserGraduate } from "react-icons/fa";
 import { FaClipboardList } from "react-icons/fa";
 import { FaBuilding } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Home: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className={`home-container ${collapsed ? "collapsed" : ""}`}>
@@ -51,25 +53,16 @@ const Home: React.FC = () => {
                 Department
               </span>
             </li>
-            <li>
-              <Link
-                to="/registration"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  textDecoration: "none",
-                  color: "inherit",
-                  width: "100%",
-                }}
-              >
-                <span className="icon">
-                  <FaClipboardList />
-                </span>
+            <li onClick={() => navigate("/registration")}>
+              {/* <Link to="/registration" className={"menu-link"}> */}
+              <span className="icon">
+                <FaClipboardList />
+              </span>
 
-                <span className={`menu-text ${collapsed ? "hide-text" : ""}`}>
-                  Registration
-                </span>
-              </Link>
+              <span className={`menu-text ${collapsed ? "hide-text" : ""}`}>
+                Registration
+              </span>
+              {/* </Link> */}
             </li>
           </ul>
         </nav>
