@@ -4,7 +4,6 @@ import { HiBars3 } from "react-icons/hi2";
 import { FaUserGraduate } from "react-icons/fa";
 import { FaClipboardList } from "react-icons/fa";
 import { FaBuilding } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Home: React.FC = () => {
@@ -33,17 +32,6 @@ const Home: React.FC = () => {
                 Course Details
               </span>
             </li>
-
-            {/* <li>
-              <span className="icon">
-                <FaClipboardList />
-              </span>
-
-              <span className={`menu-text ${collapsed ? "hide-text" : ""}`}>
-                Registration
-              </span>
-            </li> */}
-
             <li>
               <span className="icon">
                 <FaBuilding />
@@ -54,7 +42,6 @@ const Home: React.FC = () => {
               </span>
             </li>
             <li onClick={() => navigate("/registration")}>
-              {/* <Link to="/registration" className={"menu-link"}> */}
               <span className="icon">
                 <FaClipboardList />
               </span>
@@ -62,7 +49,6 @@ const Home: React.FC = () => {
               <span className={`menu-text ${collapsed ? "hide-text" : ""}`}>
                 Registration
               </span>
-              {/* </Link> */}
             </li>
           </ul>
         </nav>
